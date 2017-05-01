@@ -26,7 +26,6 @@ public class Main {
         System.out.println("You have " + savingsAcct + " in your Savings Account.");
 
         System.out.print("\n");
-        System.out.print("\n");
 
         totalAcct = checkingAcct + savingsAcct;
         System.out.println("You have $" + df.format(totalAcct) + " in your accounts.");
