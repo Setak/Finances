@@ -42,13 +42,13 @@ public class Main {
 
         System.out.print("Enter a bill name here: ");
         billName.add(userInput.next());
-        System.out.print("Enter how much to pay " + billName + " this month.");
+        System.out.print("Enter how much to pay " + billName + " this month: ");
         billPay.add(userInput.nextFloat());
 
         totalAcct = checkingAcct.getCheckingAcct() + savingsAcct.getSavingsAcct();
         System.out.println("You have $" + df.format(totalAcct) + " in your accounts.");
 
-        System.out.println("You owe " + billPay);
+        System.out.println("You owe " + billPay + " on " + billPay.size() + " bills.");
 
     }
 
