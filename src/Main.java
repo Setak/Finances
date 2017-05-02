@@ -18,8 +18,7 @@ public class Main {
         ArrayList<Bills> bill = new ArrayList<Bills>();
 
         int numBills = 0;
-
-        //Bills b1 = new setBill(402.00, "Car");
+        String moreBills;
 
         DecimalFormat df = new DecimalFormat();  // sets DecimalFormat Class
         df.setMinimumFractionDigits(2);
@@ -35,21 +34,34 @@ public class Main {
 
         System.out.print("\n");
 
-        System.out.print("Enter a bill name here: ");
-        String billNameInput = userInput.next();
-        System.out.print("Enter how much to pay " + billNameInput + " this month: ");
-        Double billPayInput = userInput.nextDouble();
+        System.out.print("Do you have any bills to add (Y or N): ");
+        moreBills = userInput.next();
 
-        //System.out.println("Do you have any bills to add (Y or N): ");
-        //String moreBills = userInput.next();
+        System.out.print("\n");
 
-        billNamePK.setBill(billPayInput, billNameInput);
-        bill.add(billNamePK);
+        while (moreBills.equalsIgnoreCase("Y")) {
 
-        /*
-        billName.add(userInput.next());
-        billPay.add(userInput.nextFloat());
-        */
+            System.out.print("Enter a bill name here: ");
+            String billNameInput = userInput.next();
+            System.out.print("Enter how much to pay " + billNameInput + " this month: ");
+            Double billPayInput = userInput.nextDouble();
+
+            billNamePK.setBill(billPayInput, billNameInput);
+            //bill.add(numBills, billNamePK);
+            bill.add(billNamePK);
+
+            System.out.println("Check Bill Number: " + numBills);
+
+            numBills++;
+
+            System.out.print("\n");
+
+            System.out.print("Do you have any more bills to add (Y or N): ");
+            moreBills = userInput.next();
+
+            System.out.print("\n");
+
+        }
 
         totalAcct.setTotalAcct(checkingAcct.getCheckingAcct() + savingsAcct.getSavingsAcct());
         System.out.println("You have $" + df.format(totalAcct.getTotalAcct()) + " in your accounts.");
