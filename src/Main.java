@@ -27,6 +27,8 @@ public class Main {                                                             
         df.setMinimumFractionDigits(2);                                                                                 // Sets df format to use a minimum 2 places after decimal
         df.setMaximumFractionDigits(2);                                                                                 // Sets df format to use a maximum 2 places after decimal
 
+        System.out.print("\n");                                                                                         // Force Line Break in console
+
         System.out.print("Enter Checking Account Amount: ");                                                            // Asks user for Checking Account Amount
         checkingAcct.setCheckingAcct(userInput.nextFloat());                                                            // Takes user input of next float entered and sets Checking Account variable
         System.out.println("You have $" + df.format(checkingAcct.getCheckingAcct()) + " in your Checking Account.");    // Output to console the amount in Checking Account variable
