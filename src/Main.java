@@ -93,6 +93,6 @@ public class Main {                                                             
 
         //System.out.println("You owe " + billPay + " on " + billPay.size() + " bills.");
 
-    }                                                                                                                   // Closes Main
+    }                                                                                                                   // ...Program Ends
 
 }                                                                                                                       // Closes Main Class
