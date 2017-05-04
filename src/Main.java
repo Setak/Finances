@@ -18,7 +18,7 @@ public class Main {                                                             
 
         Bills billTotal = new Bills();                                                                                  // Create billTotal object from Bills Class
 
-        //int numBillsWhile = 0;                                                                                        // Set number of bills to 0, used to test the while loop
+        int numBills = 0;                                                                                               // Set number of bills to 0, used to test the while loop
         int numBillsItr = 0;                                                                                            // Set number of bills counter in iterator to 0, used to create a count of the iterator
         String moreBills;                                                                                               // initialize moreBills variable, used to create while loop
         String billText;                                                                                                // initialize billText variable, used to determine plurality of text in console output
@@ -59,7 +59,7 @@ public class Main {                                                             
             bill.add(billNamePK);                                                                                       // Adds billNamePK object to the Bills ArrayList, creating an entry in the ArrayList with 2 values, bill name (billNameInput) and bill amount (billPayInput)
 
             //System.out.println("Check Bill Number: " + numBillsWhile);                                                // TEST COMMAND - outputs numBills variable, used to see if the while loop was working properly
-            //numBillsWhile++;                                                                                          // Increases the numBills variable by 1, this was used as a test variable to check the while loop
+            numBills++;                                                                                                 // Increases the numBills variable by 1, this was used as a test variable to check the while loop
 
             System.out.print("\n");                                                                                     // Force Line Break in console
 
@@ -70,6 +70,19 @@ public class Main {                                                             
 
         }                                                                                                               // Closes While Loop for Bill(s) Entry
 
+        //System.out.println("Number of Bills: " + bill.size());
+
+        if (bill.size() > 0) {
+            if (bill.size() > 1) {                                                                                          // if statement used to determine the number of bills stored
+                billText = "bills";                                                                                         // if number of bills stored is over 1, set the billText variable to use bills (plural)
+            } else {                                                                                                        // else, if number of bills stored is 1 or less
+                billText = "bill";                                                                                          // if number of bills stored is 1 or less, set the billText variable to use bill (singular)
+            }                                                                                                               // end if/else statement
+            System.out.println("You have " + bill.size() + " " + billText + " to pay.");                                // Output to console the number of bills to be paid
+            System.out.print("\n");
+        }
+
+
         Iterator itr = bill.iterator();                                                                                 // Creates iterator object and assign the bill ArrayList to it
 
         while (itr.hasNext()) {                                                                                         // While loop to go through the iterator
@@ -79,19 +92,43 @@ public class Main {                                                             
             billTotal.setBillTotal(billTotal.getBillTotal() + b.getBillExpense());                                      // Add billExpense variable from each bill to the billTotal variable, used to display in console output at end of program
         }                                                                                                               // Closes While Loop of the iterator once no more Bills exist
 
-        if (numBillsItr > 1) {                                                                                          // if statement used to determine the number of bills stored
-            billText = "bills";                                                                                         // if number of bills stored is over 1, set the billText variable to use bills (plural)
-        } else {                                                                                                        // else, if number of bills stored is 1 or less
-            billText = "bill";                                                                                          // if number of bills stored is 1 or less, set the billText variable to use bill (singular)
-        }                                                                                                               // end if/else statement
+        if (bill.size() == 0) {
+            System.out.println("Congratulations! You don't have any bills to pay.");
+            totalAcct.setTotalAcct(checkingAcct.getCheckingAcct() + savingsAcct.getSavingsAcct());                      // Sets the totalAcct variable to add the values returned from the CheckingAcct and SavingsAcct variables entered in the beginning
+            System.out.println("You have $" + df.format(totalAcct.getTotalAcct()) + " in your accounts.");              // Prints out on the console the results of totalAcct, and formatting that value to 2 decimal places
 
-        System.out.println("You have " + numBillsItr + " " + billText + " to pay.");                                    // Output to console the number of bills to be paid
+        } else {
+            checkingAcct.setCheckingAcct(checkingAcct.getCheckingAcct() - billTotal.getBillTotal());
+            System.out.print("\n");
+            if (checkingAcct.getCheckingAcct() <= 0) {
+                System.out.println("You don't have enough in your checking account!");
 
-        System.out.print("\n");                                                                                         // Force Line Break in console
+                System.out.print("\n");
 
-        System.out.println("For a total of $" + df.format(billTotal.getBillTotal()));                                   // Output to console the total of the bills stored, formatted to 2 places after decimal
+                if (Math.abs(checkingAcct.getCheckingAcct()) <= savingsAcct.getSavingsAcct()) {
+                    System.out.println("You should transfer $" + df.format(Math.abs(checkingAcct.getCheckingAcct())) + " from your savings account.");
 
-        //System.out.println("You owe " + billPay + " on " + billPay.size() + " bills.");
+                    System.out.print("\n");
+
+                    savingsAcct.setSavingsAcct(savingsAcct.getSavingsAcct() - Math.abs(checkingAcct.getCheckingAcct()));
+                    System.out.println("Leaving you with $" + df.format(savingsAcct.getSavingsAcct()) + " in your savings account.");
+                } else {
+                    System.out.println("You don't have enough money in either account to pay your bills.");
+                }
+            } else {
+                System.out.println("You will have $" + df.format(checkingAcct.getCheckingAcct()) + " in your checking account.");
+                System.out.println("You will have $" + df.format(savingsAcct.getSavingsAcct()) + " in your savings account.");
+
+                System.out.print("\n");
+
+                totalAcct.setTotalAcct(checkingAcct.getCheckingAcct() + savingsAcct.getSavingsAcct());                          // Sets the totalAcct variable to add the values returned from the CheckingAcct and SavingsAcct variables entered in the beginning
+                System.out.println("Giving you a total of $" + df.format(totalAcct.getTotalAcct()) + " in your accounts.");              // Prints out on the console the results of totalAcct, and formatting that value to 2 decimal places
+            }
+        }
+
+        //System.out.print("\n");                                                                                       // Force Line Break in console
+
+        //System.out.println("For a total of $" + df.format(billTotal.getBillTotal()));                                 // Output to console the total of the bills stored, formatted to 2 places after decimal
 
     }                                                                                                                   // ...Program Ends
 
