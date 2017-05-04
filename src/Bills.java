@@ -5,6 +5,15 @@ public class Bills {
 
     private double billExpense;
     private String billName;
+    private double billTotal;
+
+    public double getBillTotal() {
+        return billTotal;
+    }
+
+    public void setBillTotal(double newBillTotal) {
+        billTotal = newBillTotal;
+    }
 
     public double getBillExpense() {
         return billExpense;
