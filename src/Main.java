@@ -1,6 +1,9 @@
 /**
  * Created by Paul.Kates on 5/1/2017.
  */
+import org.apache.poi.hssf.usermodel.*;
+import org.apache.poi.ss.usermodel.CellType;
+import java.io.*;
 import java.text.DecimalFormat;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -26,6 +29,42 @@ public class Main {                                                             
         DecimalFormat df = new DecimalFormat();                                                                         // Sets df format from DecimalFormat class, used to set min/max digits on floats/doubles
         df.setMinimumFractionDigits(2);                                                                                 // Sets df format to use a minimum 2 places after decimal
         df.setMaximumFractionDigits(2);                                                                                 // Sets df format to use a maximum 2 places after decimal
+
+        /* commenting this out for now
+
+        // CODE STARTS HERE TO TEST WRITE WORKBOOK FUNCTIONALITY
+
+        HSSFWorkbook workbookWrite = new HSSFWorkbook();                                                                     // Sets workbook from HSSF class, meaning it works with XLS files, use XSSF for XLSX files
+        HSSFSheet sheetWrite = workbookWrite.createSheet("FirstExcelSheet");                                            // Sets first sheet in workbook and names it accordingly
+        HSSFRow rowWrite = sheetWrite.createRow(0);                                                                       // Sets the row, 0 means it's the first one in the sheet
+        HSSFCell cellWrite = rowWrite.createCell(0);                                                                       // Sets the column, 0 means it's the first one in the sheet
+        cellWrite.setCellValue("1. Cell");                                                                                   // Sets the value to the cell selected
+
+        try {                                                                                                           // Basic Try/Catch block to deal with the IOException of the file not existing
+            workbookWrite.write(new FileOutputStream("excel.xls"));                                                    // Creates new excel file
+            workbookWrite.close();                                                                                           // Closes the workbook that is created
+        } catch (IOException e) {                                                                                       // Catches the IOException error thrown
+            throw new RuntimeException("This shouldn't happen, It will create the file", e);                            // Tells us that the exception shouldn't be thrown because the sheet is created on the previous lines
+        }                                                                                                               // Ends Try/Catch Block for the IOException
+
+        // CODE ENDS HERE TO TEST WRITE WORKBOOK FUNCTIONALITY
+
+        // CODE STARTS HERE TO TEST READ WORKBOOK FUNCTIONALITY
+
+        try {
+            HSSFWorkbook workbookRead = new HSSFWorkbook(new FileInputStream("excel.xls"));
+            HSSFSheet sheetRead = workbookRead.getSheetAt(0);
+            HSSFRow rowRead = sheetRead.getRow(0);
+            if (rowRead.getCell(0).getCellTypeEnum() == CellType.STRING) {
+                System.out.println(rowRead.getCell(0).getStringCellValue());
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("File was created", e);
+        }
+
+        // CODE ENDS HERE TO TEST READ WORKBOOK FUNCTIONALITY
+
+        */
 
         System.out.print("\n");                                                                                         // Force Line Break in console
 
@@ -126,6 +165,16 @@ public class Main {                                                             
                 totalAcct.setTotalAcct(checkingAcct.getCheckingAcct() + savingsAcct.getSavingsAcct());                          // Sets the totalAcct variable to add the values returned from the CheckingAcct and SavingsAcct variables entered in the beginning
                 System.out.println("Giving you a total of $" + df.format(totalAcct.getTotalAcct()) + " in your accounts.");              // Prints out on the console the results of totalAcct, and formatting that value to 2 decimal places
             }
+        }
+
+        System.out.print("\n");
+
+        System.out.println("I hope this helped. Press X to exit: ");
+        String exit = userInput.next();
+
+        while (!exit.equalsIgnoreCase("x")) {
+            System.out.println("Hahahaha, not X, try again.");
+            exit = userInput.next();
         }
 
         //System.out.print("\n");                                                                                       // Force Line Break in console
