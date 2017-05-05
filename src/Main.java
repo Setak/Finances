@@ -169,7 +169,7 @@ public class Main {                                                             
 
         System.out.print("\n");
 
-        System.out.println("I hope this helped. Press X to exit: ");
+        System.out.println("I hope this helped. Enter X to exit: ");
         String exit = userInput.next();
 
         while (!exit.equalsIgnoreCase("x")) {
