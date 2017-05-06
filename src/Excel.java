@@ -22,15 +22,6 @@ public class Excel {
         this.cellWrite = cellWrite;
     }
 
-    /*
-    try {                                                                                                           // Basic Try/Catch block to deal with the IOException of the file not existing
-        workbookWrite.write(new FileOutputStream("excel.xls"));                                                    // Creates new excel file
-        workbookWrite.close();                                                                                           // Closes the workbook that is created
-    } catch (FileNotFoundException e) {                                                                                       // Catches the IOException error thrown
-        throw new RuntimeException("This shouldn't happen, It will create the file", e);                            // Tells us that the exception shouldn't be thrown because the sheet is created on the previous lines
-    }                                                                                                               // Ends Try/Catch Block for the IOException
-    */
-
     // CODE ENDS HERE TO TEST WRITE WORKBOOK FUNCTIONALITY
 
 
