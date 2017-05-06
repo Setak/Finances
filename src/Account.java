@@ -12,7 +12,7 @@ public class Account {
     }                                                                                                                   // Ends Getter for checkingAcct
 
     public void setCheckingAcct(double newCheckingAcct) {                                                               // Starts Setter for checkingAcct
-        checkingAcct = newCheckingAcct;                                                                                 // assigns the float captured from Main to the checkingAcct variable
+        this.checkingAcct = newCheckingAcct;                                                                                 // assigns the float captured from Main to the checkingAcct variable
     }                                                                                                                   // Ends Setter for checkingAcct
 
     public double getSavingsAcct() {                                                                                    // Starts Getter for savingsAcct
@@ -20,7 +20,7 @@ public class Account {
     }                                                                                                                   // Ends Getter for savingsAcct
 
     public void setSavingsAcct(double newSavingsAcct) {                                                                 // Starts Setter for savingsAcct
-        savingsAcct = newSavingsAcct;                                                                                   // assigns the float captured from Main to the savingsAcct variable
+        this.savingsAcct = newSavingsAcct;                                                                                   // assigns the float captured from Main to the savingsAcct variable
     }                                                                                                                   // Ends Setter for savingsAcct
 
     public double getTotalAcct() {                                                                                      // Starts Getter for totalAcct
@@ -28,7 +28,7 @@ public class Account {
     }                                                                                                                   // Ends Getter for totalAcct
 
     public void setTotalAcct(double newTotalAcct) {                                                                     // Starts Setter for totalAcct
-        totalAcct = newTotalAcct;                                                                                       // assigns the float captured from Main to the totalAcct variable
+        this.totalAcct = newTotalAcct;                                                                                       // assigns the float captured from Main to the totalAcct variable
     }                                                                                                                   // Ends Setter for totalAcct
 
 }

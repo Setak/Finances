@@ -12,7 +12,7 @@ public class Bills {
     }                                                                                                                   // Ends Getter for billTotal variable
 
     public void setBillTotal(double newBillTotal) {                                                                     // Start Setter for billTotal
-        billTotal = newBillTotal;                                                                                       // Sets the billTotal variable to the passed in Double through Main
+        this.billTotal = newBillTotal;                                                                                       // Sets the billTotal variable to the passed in Double through Main
     }                                                                                                                   // Ends Setter for billTotal
 
     public double getBillExpense() {                                                                                    // Start Getter for billExpense
@@ -24,8 +24,8 @@ public class Bills {
     }                                                                                                                   // Ends Getter for billName
 
     public void setBill(double newBillExpense, String newBillName) {                                                    // Start Setter for setBill, which will take the values for the bill, name and cost, and get it ready to be added to the ArrayList Bills
-        billExpense = newBillExpense;                                                                                   // Sets the billExpense variable based on the double captured in Main
-        billName = newBillName;                                                                                         // Sets the billName variable based on the string captured in Main
+        this.billExpense = newBillExpense;                                                                                   // Sets the billExpense variable based on the double captured in Main
+        this.billName = newBillName;                                                                                         // Sets the billName variable based on the string captured in Main
     }                                                                                                                   // Ends Setter for setBill
 
 }
