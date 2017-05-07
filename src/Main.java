@@ -11,13 +11,14 @@ import java.util.ArrayList;
 
 public class Main {                                                                                                     // Opens Main Class
 
-    public static void main(String[] args) throws IOException, FileNotFoundException {                                                                            // Program Begins...
+    public static void main(String[] args) throws IOException {                                                                            // Program Begins...
 
         Scanner userInput = new Scanner(System.in);                                                                     // Create Scanner Object
         Account checkingAcct = new Account();                                                                           // Create checkingAcct object from Account Class
         Account savingsAcct = new Account();                                                                            // Create savingsAcct object from Account Class
         Account totalAcct = new Account();                                                                              // Create totalAcct object from Account Class
         ArrayList<Bills> bill = new ArrayList<Bills>();                                                                 // Create bill ArrayList from Bills Class
+        Excel workbook = new Excel();
 
         Bills billTotal = new Bills();                                                                                  // Create billTotal object from Bills Class
 
@@ -30,7 +31,9 @@ public class Main {                                                             
         df.setMinimumFractionDigits(2);                                                                                 // Sets df format to use a minimum 2 places after decimal
         df.setMaximumFractionDigits(2);                                                                                 // Sets df format to use a maximum 2 places after decimal
 
-        /*
+
+        workbook.setCell();
+
          try {                                                                                                           // Basic Try/Catch block to deal with the IOException of the file not existing
             workbookWrite.write(new FileOutputStream("excel.xls"));                                                    // Creates new excel file
             workbookWrite.close();                                                                                           // Closes the workbook that is created
@@ -52,8 +55,8 @@ public class Main {                                                             
         }
 
         // CODE ENDS HERE TO TEST READ WORKBOOK FUNCTIONALITY
-        */
 
+        /*
         System.out.print("\n");                                                                                         // Force Line Break in console
 
         System.out.print("Enter Checking Account Amount: ");                                                            // Asks user for Checking Account Amount
@@ -168,7 +171,7 @@ public class Main {                                                             
         //System.out.print("\n");                                                                                       // Force Line Break in console
 
         //System.out.println("For a total of $" + df.format(billTotal.getBillTotal()));                                 // Output to console the total of the bills stored, formatted to 2 places after decimal
-
+        */
     }                                                                                                                   // ...Program Ends
 
 }                                                                                                                       // Closes Main Class
