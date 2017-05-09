@@ -3,32 +3,41 @@
  */
 public class Account {
 
-    private double checkingAcct;                                                                                        // Initializes private variable for Checking Account
-    private double savingsAcct;                                                                                         // Initializes private variable for Savings Account
-    private double totalAcct;                                                                                           // Initializes private variable for Account Totals when Checking and Savings are added
+    private double checkingAcct;
+    // Initializes private variable for Checking Account
+    private double savingsAcct;
+    // Initializes private variable for Savings Account
+    private double totalAcct;
+    // Initializes private variable for Account Totals when Checking and Savings are added
 
-    public double getCheckingAcct() {                                                                                   // Starts Getter for checkingAcct
-        return checkingAcct;                                                                                            // returns checkingAcct variable to be used in Main
-    }                                                                                                                   // Ends Getter for checkingAcct
+    public double getCheckingAcct() {
+        return checkingAcct;
+        // returns checkingAcct variable to be used in Main
+    }
 
-    public void setCheckingAcct(double newCheckingAcct) {                                                               // Starts Setter for checkingAcct
-        this.checkingAcct = newCheckingAcct;                                                                                 // assigns the float captured from Main to the checkingAcct variable
-    }                                                                                                                   // Ends Setter for checkingAcct
+    public void setCheckingAcct(double newCheckingAcct) {
+        this.checkingAcct = newCheckingAcct;
+        // assigns the float captured from Main to the checkingAcct variable
+    }
 
-    public double getSavingsAcct() {                                                                                    // Starts Getter for savingsAcct
-        return savingsAcct;                                                                                             // returns savingsAcct variable to be used in Main
-    }                                                                                                                   // Ends Getter for savingsAcct
+    public double getSavingsAcct() {
+        return savingsAcct;
+        // returns savingsAcct variable to be used in Main
+    }
 
-    public void setSavingsAcct(double newSavingsAcct) {                                                                 // Starts Setter for savingsAcct
-        this.savingsAcct = newSavingsAcct;                                                                                   // assigns the float captured from Main to the savingsAcct variable
-    }                                                                                                                   // Ends Setter for savingsAcct
+    public void setSavingsAcct(double newSavingsAcct) {
+        this.savingsAcct = newSavingsAcct;
+        // assigns the float captured from Main to the savingsAcct variable
+    }
 
-    public double getTotalAcct() {                                                                                      // Starts Getter for totalAcct
-        return totalAcct;                                                                                               // returns totalAcct variable to be used in Main
-    }                                                                                                                   // Ends Getter for totalAcct
+    public double getTotalAcct() {
+        return totalAcct;
+        // returns totalAcct variable to be used in Main
+    }
 
-    public void setTotalAcct(double newTotalAcct) {                                                                     // Starts Setter for totalAcct
-        this.totalAcct = newTotalAcct;                                                                                       // assigns the float captured from Main to the totalAcct variable
-    }                                                                                                                   // Ends Setter for totalAcct
+    public void setTotalAcct(double newTotalAcct) {
+        this.totalAcct = newTotalAcct;
+        // assigns the float captured from Main to the totalAcct variable
+    }
 
 }
