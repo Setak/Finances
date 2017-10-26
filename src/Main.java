@@ -46,33 +46,45 @@ public class Main {
         df.setMaximumFractionDigits(2);
         // Sets df format to use a maximum 2 places after decimal
 
+        // CODE STARTS HERE TO TEST WRITE WORKBOOK FUNCTIONALITY
 
-        workbook.setCell();
+        HSSFWorkbook workbookWrite = new HSSFWorkbook();
+        // Sets workbook from HSSF class, meaning it works with XLS files, use XSSF for XLSX files
+        HSSFSheet sheetWrite = workbookWrite.createSheet("FirstExcelSheet");
+        // Sets first sheet in workbook and names it accordingly
+        HSSFRow rowWrite = sheetWrite.createRow(0);
+        // Sets the row, 0 means it's the first one in the sheet
+        HSSFCell cellWrite = rowWrite.createCell(0);
+        // Sets the column, 0 means it's the first one in the sheet
+        cellWrite.setCellValue("1. Cell");
+        // Sets the value to the cell selected
 
-         try {
-         // Basic Try/Catch block to deal with the IOException of the file not existing
-            workbookWrite.write(new FileOutputStream("excel.xls"));
+        // Basic Try/Catch block to deal with the IOException of the file not existing
+        try {
+            workbookWrite.write(new FileOutputStream("Finances.xls"));
             // Creates new excel file
             workbookWrite.close();
             // Closes the workbook that is created
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
         // Catches the IOException error thrown
             throw new RuntimeException("This shouldn't happen, It will create the file", e);
             // Tells us that the exception shouldn't be thrown because the sheet is created on the previous lines
         }
         // Ends Try/Catch Block for the IOException
 
+        // CODE ENDS HERE TO TEST WRITE WORKBOOK FUNCTIONALITY
+
         // CODE STARTS HERE TO TEST READ WORKBOOK FUNCTIONALITY
 
         try {
-            HSSFWorkbook workbookRead = new HSSFWorkbook(new FileInputStream("excel.xls"));
+            HSSFWorkbook workbookRead = new HSSFWorkbook(new FileInputStream("Finances.xls"));
             HSSFSheet sheetRead = workbookRead.getSheetAt(0);
             HSSFRow rowRead = sheetRead.getRow(0);
             if (rowRead.getCell(0).getCellTypeEnum() == CellType.STRING) {
                 System.out.println(rowRead.getCell(0).getStringCellValue());
             }
-        } catch (IOException er) {
-            throw new RuntimeException("File was created", er);
+        } catch (IOException e) {
+            throw new RuntimeException("Excel File Does Not Exist!", e);
         }
 
         // CODE ENDS HERE TO TEST READ WORKBOOK FUNCTIONALITY
